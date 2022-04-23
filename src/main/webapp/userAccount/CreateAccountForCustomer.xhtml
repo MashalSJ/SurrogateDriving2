@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  - Created by Osman Balci on 2021.7.15
+  - Copyright © 2021 Osman Balci. All rights reserved.
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<!-- This page is constructed based on the siteTemplate -->
+<ui:composition template="/template/siteTemplate.xhtml">
+
+    <ui:define name="title">
+        <!-- Set the page title -->
+        <h:outputText value="Create Account for customer" />
+    </ui:define>
+
+    <!-- Create the content for this page below -->
+    <ui:define name="editableContent">
+        <div align="center" style="width:80%; margin:0 auto;">
+            <h:form id="AccountCreationForm">
+                <h1>Create an Account</h1>
+                <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
+                    <!--
+                    ********************************
+                    *          FIRST NAME          *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Name:" for="firstName" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="firstName" value="#{userController.firstName}" style="width: 290px"
+                                 required="true" requiredMessage="First Name is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          SSN                 *
+                    ********************************
+                    -->
+                    <p:outputLabel value="SSN:" for="lastName" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="lastName" value="#{userController.lastName}" style="width: 290px"
+                                 required="true" requiredMessage="SSN is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          DATE of Birth       *
+                    ********************************
+                    -->
+                    <p:outputLabel value="DOB:" for="middleName" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="middleName" value="#{userController.middleName}" style="width: 290px"
+                                 required="true" requiredMessage="DOB is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          Phone number        *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Phone #:" for="city" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="city" value="#{userController.city}" style="width: 290px"
+                                 required="true" requiredMessage="Phone number is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          car plate #       *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Car Plate #:" for="email" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="email" value="#{userController.email}" style="width: 290px"
+                                 required="true" requiredMessage="Car plate number is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          car color      *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Car Color:" for="address1" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="address1" value="#{userController.address1}" style="width: 290px"
+                                 required="true" requiredMessage="Car color is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          car model      *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Car Model:" for="address2" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="address2" value="#{userController.address2}" style="width: 290px"
+                                 required="true" requiredMessage="Car model is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          car brand      *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Car brand:" for="state" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="state" value="#{userController.state}" style="width: 290px"
+                                 required="true" requiredMessage="Car brand is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                   ********************************
+                   *          car brand      *
+                   ********************************
+                   -->
+                    <p:outputLabel value="Car year:" for="zipcode" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="zipcode" value="#{userController.zipcode}" style="width: 290px"
+                                 required="true" requiredMessage="Car year is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                   ********************************
+                   *          car type      *
+                   ********************************
+                   -->
+                    <p:outputLabel value="Car type:" for="sequrity_question_number" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="sequrity_question_number" value="#{userController.securityQuestionNumber}" style="width: 290px"
+                                 required="true" requiredMessage="Car type is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *          car transmission      *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Transmission:" for="firstName" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="temp" value="#{userController.security_questions}" style="width: 290px"
+                                 required="true" requiredMessage="Transmission is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *       ACCOUNT USERNAME       *
+                    ********************************
+                    -->
+                    <p:outputLabel id="usernameEntry" value="Username:" for="username" >
+                        &nbsp;<i class="fas fa-question-circle" />
+                        <!--
+                        When the user mouses over the icon, a tooltip is displayed
+                        to provide context-sensitive help information to the user.
+                        -->
+                        <p:tooltip for="usernameEntry" value="Enter 6 to 32 characters with capital letter, lowercase letter, number, or special character _ . - @"
+                                   showEffect="clip" hideEffect="explode" position="top" />
+                    </p:outputLabel>
+
+                    <p:inputText id="username" value="#{userController.username}" style="width: 290px"
+                                 required="true" requiredMessage="Username is required!">
+                        <!--
+                        Execute the "validate" method in the "UsernameValidator.java"
+                        class file to validate the username entered.
+                        -->
+                        <f:validator validatorId="usernameValidator"/>
+                    </p:inputText>
+
+
+                    <!--
+                    ********************************
+                    *       ACCOUNT PASSWORD       *
+                    ********************************
+                    -->
+                    <p:outputLabel id="passwordEntry" value="Password:" for="password" >
+                        &nbsp;<i class="fas fa-question-circle" />
+                        <!--
+                        When the user mouses over the icon, a tooltip is displayed
+                        to provide context-sensitive help information to the user.
+                        -->
+                        <p:tooltip for="passwordEntry" value="Enter 8 to 32 characters with at least 1: capital letter, lowercase letter, number, and special characters above the numbers on the keyboard."
+                                   showEffect="clip" hideEffect="explode" position="top" />
+                    </p:outputLabel>
+
+                    <!--
+                    p:password changes the characters typed to bullets to hide the password as it is typed.
+                    feedback="true" displays password strength indicator.
+                    -->
+                    <p:password id="password" value="#{userController.password}" style="width: 290px"
+                                feedback="true" required="true" requiredMessage="Password is required!" >
+                        <!--
+                        Execute the "validate" method in the "PasswordValidator.java"
+                        class file to validate the password entered.
+                        -->
+                        <f:validator validatorId="passwordValidator" />
+                    </p:password>
+
+                    <!--
+                    ********************************
+                    *       CONFIRM PASSWORD       *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Confirm Password:" for="confirmPassword" />
+                    <p:password id="confirmPassword" value="#{userController.confirmPassword}" style="width: 290px"
+                                required="true" requiredMessage="Confirm Password is required!" />
+
+                </p:panelGrid>
+                <br /><br />
+
+                <!--
+                ================================
+                |    CREATE ACCOUNT Button     |
+                ================================
+                -->
+                <p:commandButton id="createAccount" value="Submit" icon="fas fa-arrow-up" styleClass="rounded-button"
+                                 ajax="false" action="#{userController.createAccount()}" />
+                &nbsp;&nbsp;
+                <!--
+                ================================
+                |        CANCEL Button         |
+                ================================
+                -->
+                <p:button outcome="/index" value="Cancel" icon="fas fa-ban" styleClass="ui-button-outlined" />
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
+
