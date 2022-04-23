@@ -13,11 +13,7 @@ import edu.vt.globals.Password;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.LinkedHashMap;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import java.io.IOException;
@@ -34,8 +30,8 @@ public class TransactionController implements Serializable {
     Instance Variables (Properties)
     ===============================
      */
-    private Timestamp start_time;
-    private Timestamp end_time;
+    private Calendar start_time;
+    private Calendar end_time;
     private String start_location;
     private String end_loaction;
     private Double price;
@@ -60,19 +56,19 @@ public class TransactionController implements Serializable {
     =========================
      */
 
-    public Timestamp getStart_time() {
+    public Calendar getStart_time() {
         return start_time;
     }
 
-    public void setStart_time(Timestamp start_time) {
+    public void setStart_time(Calendar start_time) {
         this.start_time = start_time;
     }
 
-    public Timestamp getEnd_time() {
+    public Calendar getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(Timestamp end_time) {
+    public void setEnd_time(Calendar end_time) {
         this.end_time = end_time;
     }
 
