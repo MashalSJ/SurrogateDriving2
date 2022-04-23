@@ -262,7 +262,7 @@ public class UserController implements Serializable {
             /*
              Set the signed-in user's properties to the values entered by
              the user in the EditAccountProfileForm in EditAccount.xhtml.
-             */
+
             editUser.setFirstName(this.selected.getFirstName());
             editUser.setMiddleName(this.selected.getMiddleName());
             editUser.setLastName(this.selected.getLastName());
@@ -272,7 +272,7 @@ public class UserController implements Serializable {
             editUser.setCity(this.selected.getCity());
             editUser.setState(this.selected.getState());
             editUser.setZipcode(this.selected.getZipcode());
-            editUser.setEmail(this.selected.getEmail());
+            editUser.setEmail(this.selected.getEmail());*/
 
             // Store the changes in the database
             userFacade.edit(editUser);
@@ -339,10 +339,8 @@ public class UserController implements Serializable {
 
         // Reset the signed-in User's properties
         username = password = confirmPassword = "";
-        firstName = middleName = lastName = "";
-        address1 = address2 = city = state = zipcode = "";
-        securityQuestionNumber = 0;
-        answerToSecurityQuestion = email = "";
+        accountType = "";
+        driver_id = customer_id = 0;
         selected = null;
 
         // Since we will redirect to show the home page, invoke preserveMessages()

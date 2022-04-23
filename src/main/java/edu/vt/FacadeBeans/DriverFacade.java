@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 // @Stateless annotation implies that the conversational state with the client shall NOT be maintained.
 @Stateless
-public class DriverFacade extends AbstractFacade<Driverr> {
+public class DriverFacade extends AbstractFacade<Driver> {
     /*
     ---------------------------------------------------------------------------------------------
     The EntityManager is an API that enables database CRUD (Create Read Update Delete) operations
