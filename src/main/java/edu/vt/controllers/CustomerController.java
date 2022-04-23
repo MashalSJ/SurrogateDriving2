@@ -54,7 +54,7 @@ public class CustomerController implements Serializable {
     Getter and Setter Methods
     =========================
      */
-    public String getCustomername() {
+    public String getName() {
         return name;
     }
 
