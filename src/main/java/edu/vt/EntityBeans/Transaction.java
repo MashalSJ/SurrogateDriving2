@@ -2,7 +2,6 @@
 package edu.vt.EntityBeans;
 
 import java.io.Serializable;
-import java.sql.Calendar;
 import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.*;
@@ -78,12 +77,12 @@ public class Transaction implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "start_time")
-    @Temporal(TemporalType.Calendar)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar start_time;
 
     @Basic(optional = false)
     @Column(name = "end_time")
-    @Temporal(TemporalType.Calendar)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar end_time;
 
     @Basic(optional = false)
