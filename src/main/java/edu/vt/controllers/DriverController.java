@@ -94,7 +94,7 @@ public class DriverController implements Serializable {
         if (selected == null) {
             // Store the object reference of the signed-in User into the instance variable selected.
             Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-            selected = (User) sessionMap.get("driver");
+            selected = (Driver) sessionMap.get("driver");
         }
         // Return the object reference of the selected (i.e., signed-in) User object
         return selected;

@@ -143,10 +143,10 @@ public class LoginManager implements Serializable {
         sessionMap.put("user", user);
 
         // Store the First Name of the signed-in user
-        sessionMap.put("first_name", user.getFirstName());
+        sessionMap.put("driver_id", user.getDriver_id());
 
         // Store the Last Name of the signed-in user
-        sessionMap.put("last_name", user.getLastName());
+        sessionMap.put("customer_id", user.getCustomer_id());
 
         // Store the Username of the signed-in user
         sessionMap.put("username", username);

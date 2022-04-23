@@ -2,7 +2,8 @@
 package edu.vt.EntityBeans;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.sql.Calendar;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -77,13 +78,13 @@ public class Transaction implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "start_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp start_time;
+    @Temporal(TemporalType.Calendar)
+    private Calendar start_time;
 
     @Basic(optional = false)
     @Column(name = "end_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp end_time;
+    @Temporal(TemporalType.Calendar)
+    private Calendar end_time;
 
     @Basic(optional = false)
     @NotNull
@@ -132,7 +133,7 @@ public class Transaction implements Serializable {
         this.transaction_id = transaction_id;
     }
 
-    public Transaction(Integer transaction_id, Timestamp start_time, Timestamp end_time, String start_location, String end_location, Double price, Integer customer_rating, Integer driver_rating, Integer customer_id, Integer driver_id) {
+    public Transaction(Integer transaction_id, Calendar start_time, Calendar end_time, String start_location, String end_location, Double price, Integer customer_rating, Integer driver_rating, Integer customer_id, Integer driver_id) {
         this.transaction_id = transaction_id;
         this.start_time = start_time;
         this.end_time = end_time;
@@ -153,19 +154,19 @@ public class Transaction implements Serializable {
         this.transaction_id = transaction_id;
     }
 
-    public Timestamp getStart_time() {
+    public Calendar getStart_time() {
         return start_time;
     }
 
-    public void setStart_time(Timestamp start_time) {
+    public void setStart_time(Calendar start_time) {
         this.start_time = start_time;
     }
 
-    public Timestamp getEnd_time() {
+    public Calendar getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(Timestamp end_time) {
+    public void setEnd_time(Calendar end_time) {
         this.end_time = end_time;
     }
 
