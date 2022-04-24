@@ -63,14 +63,14 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
 
     public List<Transaction> needsRating(Integer customer_id) {
         return getEntityManager().createQuery(
-                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id AND driver_rating IS NULL AND driver_id IS NOT NULL")
+                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id AND c.driver_rating IS NULL AND c.driver_id IS NOT NULL")
                 .setParameter("customer_id", customer_id)
                 .getResultList();
     }
 
     public List<Transaction> customerHistory(Integer customer_id) {
         return getEntityManager().createQuery(
-                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id AND driver_rating IS NOT NULL")
+                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id AND c.driver_rating IS NOT NULL")
                 .setParameter("customer_id", customer_id)
                 .getResultList();
     }
