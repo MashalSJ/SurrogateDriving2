@@ -61,6 +61,12 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
                 .getResultList();
     }
 
+    public List<Transaction> jobsQuery() {
+        return getEntityManager().createQuery(
+                        "SELECT u FROM Transaction u WHERE u.end_time IS NULL")
+                .getResultList();
+    }
+
     // Returns the object reference of the Transaction object whose primary key is id
     public Transaction getTransaction(int id) {
         // The find method is inherited from the parent AbstractFacade class

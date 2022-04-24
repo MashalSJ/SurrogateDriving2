@@ -56,8 +56,9 @@ public class TransactionController implements Serializable {
     @EJB
     private TransactionFacade transactionFacade;
 
-    private List<Transaction> listOfRequests = null;
+    //private List<Transaction> listOfRequests = null;
     private List<Transaction> listOfTransactions = null;
+    //private List<Transaction> listOfJobs = null;
     
     /*
     =========================
@@ -65,18 +66,32 @@ public class TransactionController implements Serializable {
     =========================
      */
     
-    public List<Transaction> getListOfTransactions() {
+    public List<Transaction> getAllTransactions() {
         if (listOfTransactions == null) {
             listOfTransactions = transactionFacade.findAll();
         }
         return listOfTransactions;
     }
-    public List<Transaction> getListOfRequests() {
-        if (listOfRequests == null) {
-            //listOfRequests = transactionFacade.findByEndTimeNull();
-            listOfRequests = transactionFacade.driverIdQuery(new Integer(5));
+
+    public List<Transaction> getDriverTransactions(Integer driverID) {
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.driverIdQuery(driverID);
         }
-        return listOfRequests;
+        return listOfTransactions;
+    }
+
+    public List<Transaction> getRequests(Integer driverID) {
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.jobsQuery();
+        }
+        return listOfTransactions;
+    }
+
+    public List<Transaction> getCustomerTransactions(Integer customerID) {
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.customerIdQuery(customerID);
+        }
+        return listOfTransactions;
     }
 
     public Calendar getStart_time() {
@@ -173,7 +188,6 @@ public class TransactionController implements Serializable {
         transaction.setStart_time(Calendar.getInstance());
         transaction.setCustomer_id(userController.getSelected().getCustomer_id());
         transaction.setPrice();
-        transaction.setDriver_id(-1);
         // Create the customer in the database
         transactionFacade.create(transaction);
     }
