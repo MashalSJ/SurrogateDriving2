@@ -26,7 +26,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-@Named("CarController")
+@Named("carController")
 @SessionScoped
 public class CarController implements Serializable {
     /*

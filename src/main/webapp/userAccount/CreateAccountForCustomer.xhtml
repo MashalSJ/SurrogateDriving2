@@ -77,7 +77,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="platenum" value="#{carController.}" style="width: 290px"
+                    <p:inputText id="platenum" value="#{carController.plateNumber}" style="width: 290px"
                                  required="true" requiredMessage="Car plate number is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -92,7 +92,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="address1" value="#{userController.address1}" style="width: 290px"
+                    <p:inputText id="address1" value="#{carController.color}" style="width: 290px"
                                  required="true" requiredMessage="Car color is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -107,7 +107,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="address2" value="#{userController.address2}" style="width: 290px"
+                    <p:inputText id="address2" value="#{carController.model}" style="width: 290px"
                                  required="true" requiredMessage="Car model is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -122,7 +122,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="state" value="#{userController.state}" style="width: 290px"
+                    <p:inputText id="state" value="#{carController.brand}" style="width: 290px"
                                  required="true" requiredMessage="Car brand is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -137,7 +137,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="zipcode" value="#{userController.zipcode}" style="width: 290px"
+                    <p:inputText id="zipcode" value="#{carController.year}" style="width: 290px"
                                  required="true" requiredMessage="Car year is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -152,7 +152,7 @@
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="sequrity_question_number" value="#{userController.securityQuestionNumber}" style="width: 290px"
+                    <p:inputText id="sequrity_question_number" value="#{carController.carType}" style="width: 290px"
                                  required="true" requiredMessage="Car type is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -162,12 +162,12 @@
                     *          car transmission      *
                     ********************************
                     -->
-                    <p:outputLabel value="Transmission:" for="firstName" />
+                    <p:outputLabel value="Transmission:" for="transmission" />
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="temp" value="#{userController.security_questions}" style="width: 290px"
+                    <p:inputText id="transmission" value="#{carController.transmission}" style="width: 290px"
                                  required="true" requiredMessage="Transmission is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>

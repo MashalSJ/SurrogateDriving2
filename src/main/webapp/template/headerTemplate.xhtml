@@ -46,7 +46,7 @@ siteTemplate for the entire site, achieving great maintainability.
                 <td align="center" valign="middle">
                     <!-- Welcome the user if signed in -->
                     <c:if test="#{userController.isLoggedIn() == true}">
-                        <span class="headerTitle">Hello, #{userController.selected.firstName}</span>
+                        <span class="headerTitle">Hello, #{userController.selected.username}</span>
                     </c:if>
                     <c:if test="#{userController.isLoggedIn() == false}">
                         <span class="headerTitle">Hello, Guest</span>
@@ -78,7 +78,7 @@ siteTemplate for the entire site, achieving great maintainability.
                             <!-- Menu Options IF No User is Signed In -->
                             <c:if test="#{userController.isLoggedIn() == false}">
                                 <p:menuitem value="Sign In" outcome="/index" icon="fas fa-sign-in-alt" />
-                                <p:menuitem value="Create Account" outcome="/userAccount/CreateAccount" icon="fas fa-user-plus" />
+                                <!--<p:menuitem value="Create Account" outcome="/userAccount/CreateAccount" icon="fas fa-user-plus" />-->
                             </c:if>
 
                         </p:menu>

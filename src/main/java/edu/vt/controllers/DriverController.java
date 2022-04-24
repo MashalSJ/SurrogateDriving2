@@ -35,7 +35,6 @@ public class DriverController implements Serializable {
     private String license_number;
     private String name;
     private Date Date_of_Birth;
-    private String lastName;
     private String phone_number;
 
     private Driver selected;
@@ -89,6 +88,14 @@ public class DriverController implements Serializable {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public String getLicense_number() {
+        return license_number;
+    }
+
+    public void setLicense_number(String license_number) {
+        this.license_number = license_number;
     }
 
     public Driver getSelected() {

@@ -61,7 +61,7 @@
                     ********************************
                     -->
                     <p:outputLabel value="DOB:" for="dob" />
-                    <p:inputText id="dob" value="#{driverController.birthdate}" style="width: 290px"
+                    <p:inputText id="dob" value="#{driverController.date_of_Birth}" style="width: 290px"
                                  required="true" requiredMessage="DOB is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -75,7 +75,7 @@
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
-                    --><p:inputText id="phonenum" value="#{driverController.phoneNum}" style="width: 290px"
+                    --><p:inputText id="phonenum" value="#{driverController.phone_number}" style="width: 290px"
                                     required="true" requiredMessage="Phone number is required!">
                     <f:validateLength minimum="2" />
                 </p:inputText>
