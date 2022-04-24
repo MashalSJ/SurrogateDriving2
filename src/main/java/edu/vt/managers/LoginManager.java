@@ -1,6 +1,6 @@
 /*
- * Created by Osman Balci on 2021.7.20
- * Copyright © 2021 Osman Balci. All rights reserved.
+ * Created by Team13 on 2021.7.20
+ * Copyright © 2021 Team13. All rights reserved.
  */
 package edu.vt.managers;
 
@@ -125,7 +125,7 @@ public class LoginManager implements Serializable {
             // Initialize the session map with user properties of interest in the method below
             initializeSessionMap(user);
 
-            return "/index?faces-redirect=true";
+            return "/signedin?faces-redirect=true";
         }
     }
 

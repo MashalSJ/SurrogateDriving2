@@ -11,16 +11,14 @@
 
 <!-- This page is constructed based on the siteTemplate -->
 <ui:composition template="/template/siteTemplate.xhtml">
-    <ui:define name="title">
+    <ui:define name="title"/>
         <!-- Set the page title -->
-        <h:outputText value="You are Signed In!" />
+        <h1>You are signed in!</h1>
         <ui:define name="editableContent">
             <div align="center">
-                <h1>You are signed in!</h1>
-
+                <h:form><h1>You are signed in!</h1></h:form>
             </div>
             <br/><br/><br/>
         </ui:define>
-    </ui:define>
 </ui:composition>
 </html>
