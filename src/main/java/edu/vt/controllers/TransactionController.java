@@ -99,8 +99,14 @@ public class TransactionController implements Serializable {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice() {
+        int min = 5;
+        int max = 20;
+
+        //Generate random int value from 50 to 100 
+        //System.out.println("Random value in int from "+min+" to "+max+ ":");
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        this.price = random_int;
     }
 
     public Integer getCustomer_rating() {
