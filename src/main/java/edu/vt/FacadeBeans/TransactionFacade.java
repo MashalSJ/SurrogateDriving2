@@ -69,7 +69,7 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
 
     public double averagePrice() {
         Object result = (getEntityManager().createQuery(
-                        "SELECT SUM(price) as sumPrices FROM Transaction")
+                        "SELECT AVG(price) as sumPrices FROM Transaction")
                 .getResultList()).get(0);
         System.out.println(result);
         return (Double) result;
