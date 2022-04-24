@@ -51,6 +51,7 @@ public class UserController implements Serializable {
      */
     @EJB
     private UserFacade userFacade;
+    private Integer adminNum = null;
 
 
     /*
@@ -58,6 +59,12 @@ public class UserController implements Serializable {
     Getter and Setter Methods
     =========================
      */
+    public double getNumOfAdmins() {
+        if (adminNum == null) {
+            adminNum = userFacade.numOfAdmins("admin");
+        }
+        return adminNum;
+    }
     public String getUsername() {
         return username;
     }

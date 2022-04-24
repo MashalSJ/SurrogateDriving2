@@ -63,6 +63,12 @@ public class UserFacade extends AbstractFacade<User> {
         }
     }
 
+    public Integer numOfAdmins(String accountType) {
+        return getEntityManager().createQuery(
+                        "SELECT Count(c) FROM Transaction WHERE c.account_type = :accountType")
+                .getResultList().get(0);
+    }
+
     // Deletes the User entity object whose primary key is id
     public void deleteUser(int id) {
         
