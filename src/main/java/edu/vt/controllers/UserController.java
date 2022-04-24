@@ -147,6 +147,18 @@ public class UserController implements Serializable {
         return sessionMap.get("username") != null;
     }
 
+    public boolean isAdmin(UserController userController){
+        return userController.getSelected().getAccount_type().equals("admin");
+    }
+
+    public boolean isDriver(UserController userController){
+        return userController.getSelected().getAccount_type().equals("driver");
+    }
+
+    public boolean isCustomer(UserController userController){
+        return userController.getSelected().getAccount_type().equals("customer");
+    }
+
 
 
 
@@ -226,6 +238,8 @@ public class UserController implements Serializable {
                 carController.createCar(car, customer.getCustomer_id());
                 newUser.setCustomer_id(customer.getCustomer_id());
             }
+
+
 
             /*
             Invoke class Password's createHash() method to convert the user-entered String

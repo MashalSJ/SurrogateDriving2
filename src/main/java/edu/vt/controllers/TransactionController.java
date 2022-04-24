@@ -4,7 +4,9 @@
  */
 package edu.vt.controllers;
 
+import edu.vt.EntityBeans.Customer;
 import edu.vt.EntityBeans.Transaction;
+import edu.vt.EntityBeans.User;
 import edu.vt.FacadeBeans.TransactionFacade;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
@@ -106,8 +108,14 @@ public class TransactionController implements Serializable {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice() {
+        int min = 5;
+        int max = 20;
+
+        //Generate random int value from 50 to 100 
+        //System.out.println("Random value in int from "+min+" to "+max+ ":");
+        double random_int = (double)Math.floor(Math.random()*(max-min+1)+min);
+        this.price = random_int;
     }
 
     public Integer getCustomer_rating() {
@@ -156,7 +164,7 @@ public class TransactionController implements Serializable {
         transaction.setStart_location(start_location);
         transaction.setEnd_location(end_loaction);
         transaction.setStart_time(Calendar.getInstance());
-        transaction.setCustomer_id(userController.getCustomer_id());
+        transaction.setCustomer_id(userController.getSelected().getCustomer_id());
         transaction.setPrice();
         // Create the customer in the database
         transactionFacade.create(transaction);

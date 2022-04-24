@@ -45,7 +45,7 @@
                     ********************************
                     -->
                     <p:outputLabel value="Destination:" for="end_location" />
-                    <p:inputText id="end_location" value="#{transactionController.end_location}" style="width: 290px"
+                    <p:inputText id="end_location" value="#{transactionController.end_loaction}" style="width: 290px"
                                  required="true" requiredMessage="Destination is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -60,7 +60,7 @@
                 ================================
                 -->
                 <p:commandButton id="createRequest" value="Request" icon="fas fa-arrow-up" styleClass="rounded-button"
-                                 ajax="false" action="#{transactionController.createTransaction()}" />
+                                 ajax="false" action="#{transactionController.createTransaction(userController)}" />
                 <!--
                 ================================
                 |        CANCEL Button         |

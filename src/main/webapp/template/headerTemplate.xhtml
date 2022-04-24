@@ -65,13 +65,15 @@ siteTemplate for the entire site, achieving great maintainability.
 
                             <!-- Menu Options IF a User is Signed In -->
                             <c:if test="#{userController.isLoggedIn() == true}">
-                                <p:menuitem value="My Files" outcome="/userFile/ListUserFiles" icon="fas fa-list" />
-
-                                <p:menuitem outcome="/userAccount/Profile">
-                                    <p:graphicImage cache="false" styleClass="smallProfilePhoto" value="#{userController.userPhoto()}" />
-                                    &nbsp;My Account
-                                </p:menuitem>
-
+                                <c:if test="#{userController.isCustomer(userController) == true}">
+                                    <p:menuitem value="Create Request" outcome="/CreateRequest" icon="fas fa-car" />
+                                </c:if>
+                                <c:if test="#{userController.isDriver(userController) == true}">
+                                    <p:menuitem value="Create Request" outcome="/CreateRequest" icon="fas fa-car" />
+                                </c:if>
+                                <c:if test="#{userController.isAdmin(userController) == true}">
+                                    <p:menuitem value="Create Request" outcome="/CreateRequest" icon="fas fa-car" />
+                                </c:if>
                                 <p:menuitem value="Sign Out" action="#{userController.logout()}" icon="fas fa-sign-out-alt" />
                             </c:if>
 
