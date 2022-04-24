@@ -55,14 +55,21 @@ public class TransactionController implements Serializable {
     private TransactionFacade transactionFacade;
 
     private List<Transaction> listofRequests = null;
-    
+    private List<Transaction> allTransactions = null;
     
     /*
     =========================
     Getter and Setter Methods
     =========================
      */
-
+    
+    public List<Transaction> getListOfTransactions() {
+        if (allTransactions == null) {
+            allTransactions = transactionFacade.findAll();
+        }
+        return allTransactions;
+    }
+    
     public Calendar getStart_time() {
         return start_time;
     }
