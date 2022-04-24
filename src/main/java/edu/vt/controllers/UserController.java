@@ -147,6 +147,18 @@ public class UserController implements Serializable {
         return sessionMap.get("username") != null;
     }
 
+    public boolean isAdmin(UserController userController){
+        return userController.getSelected().getAccount_type().equals("admin");
+    }
+
+    public boolean isDriver(UserController userController){
+        return userController.getSelected().getAccount_type().equals("driver");
+    }
+
+    public boolean isCustomer(UserController userController){
+        return userController.getSelected().getAccount_type().equals("customer");
+    }
+
 
 
 
