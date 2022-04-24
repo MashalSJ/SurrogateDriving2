@@ -57,7 +57,7 @@ public class TransactionController implements Serializable {
     private TransactionFacade transactionFacade;
 
     private List<Transaction> listofRequests = null;
-    private List<Transaction> allTransactions = null;
+    private List<Transaction> listOfTransactions = null;
     
     /*
     =========================
@@ -66,10 +66,10 @@ public class TransactionController implements Serializable {
      */
     
     public List<Transaction> getListOfTransactions() {
-        if (allTransactions == null) {
-            allTransactions = transactionFacade.findAll();
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.findAll();
         }
-        return allTransactions;
+        return listOfTransactions;
     }
     
     public Calendar getStart_time() {
