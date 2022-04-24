@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  - Created by Osman Balci on 2021.7.15
+  - Copyright © 2021 Osman Balci. All rights reserved.
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<!-- This page is constructed based on the siteTemplate -->
+<ui:composition template="/template/siteTemplate.xhtml">
+
+    <ui:define name="title">
+        <!-- Set the page title -->
+        <h:outputText value="Add new admin" />
+    </ui:define>
+
+    <!-- Create the content for this page below -->
+    <ui:define name="editableContent">
+        <div align="center" style="width:80%; margin:0 auto;">
+            <h:form id="AccountCreationForm">
+                <h1>Add new admin</h1>
+                <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
+                    <!--
+                    ********************************
+                    *       ACCOUNT USERNAME       *
+                    ********************************
+                    -->
+                    <p:outputLabel id="usernameEntry" value="Username:" for="username" >
+                        &nbsp;<i class="fas fa-question-circle" />
+                        <!--
+                        When the user mouses over the icon, a tooltip is displayed
+                        to provide context-sensitive help information to the user.
+                        -->
+                        <p:tooltip for="usernameEntry" value="Enter 6 to 32 characters with capital letter, lowercase letter, number, or special character _ . - @"
+                                   showEffect="clip" hideEffect="explode" position="top" />
+                    </p:outputLabel>
+
+                    <p:inputText id="username" value="#{userController.username}" style="width: 290px"
+                                 required="true" requiredMessage="Username is required!">
+                        <!--
+                        Execute the "validate" method in the "UsernameValidator.java"
+                        class file to validate the username entered.
+                        -->
+                        <f:validator validatorId="usernameValidator"/>
+                    </p:inputText>
+
+
+                    <!--
+                    ********************************
+                    *       ACCOUNT PASSWORD       *
+                    ********************************
+                    -->
+                    <p:outputLabel id="passwordEntry" value="Password:" for="password" >
+                        &nbsp;<i class="fas fa-question-circle" />
+                        <!--
+                        When the user mouses over the icon, a tooltip is displayed
+                        to provide context-sensitive help information to the user.
+                        -->
+                        <p:tooltip for="passwordEntry" value="Enter 8 to 32 characters with at least 1: capital letter, lowercase letter, number, and special characters above the numbers on the keyboard."
+                                   showEffect="clip" hideEffect="explode" position="top" />
+                    </p:outputLabel>
+
+                    <!--
+                    p:password changes the characters typed to bullets to hide the password as it is typed.
+                    feedback="true" displays password strength indicator.
+                    -->
+                    <p:password id="password" value="#{userController.password}" style="width: 290px"
+                                feedback="true" required="true" requiredMessage="Password is required!" >
+                        <!--
+                        Execute the "validate" method in the "PasswordValidator.java"
+                        class file to validate the password entered.
+                        -->
+                        <f:validator validatorId="passwordValidator" />
+                    </p:password>
+
+                    <!--
+                    ********************************
+                    *       CONFIRM PASSWORD       *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Confirm Password:" for="confirmPassword" />
+                    <p:password id="confirmPassword" value="#{userController.confirmPassword}" style="width: 290px"
+                                required="true" requiredMessage="Confirm Password is required!" />
+
+                </p:panelGrid>
+                <br /><br />
+
+                <!--
+                ================================
+                |    CREATE ACCOUNT Button     |
+                ================================
+                -->
+                <p:commandButton id="createAccount" value="Submit" icon="fas fa-arrow-up" styleClass="rounded-button"
+                                 ajax="false" action="#{userController.createAccount(driverController, customerController, carController, 'driver')}" />
+                &nbsp;&nbsp;
+                <!--
+                ================================
+                |        CANCEL Button         |
+                ================================
+                -->
+                <p:button outcome="/index" value="Cancel" icon="fas fa-ban" styleClass="ui-button-outlined" />
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
