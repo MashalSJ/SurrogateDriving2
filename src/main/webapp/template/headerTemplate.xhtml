@@ -65,12 +65,6 @@ siteTemplate for the entire site, achieving great maintainability.
 
                             <!-- Menu Options IF a User is Signed In -->
                             <c:if test="#{userController.isLoggedIn() == true}">
-                                <p:menuitem value="My Files" outcome="/userFile/ListUserFiles" icon="fas fa-list" />
-
-                                <p:menuitem outcome="/userAccount/Profile">
-                                    <p:graphicImage cache="false" styleClass="smallProfilePhoto" value="#{userController.userPhoto()}" />
-                                    &nbsp;My Account
-                                </p:menuitem>
 
                                 <p:menuitem value="Sign Out" action="#{userController.logout()}" icon="fas fa-sign-out-alt" />
                             </c:if>
