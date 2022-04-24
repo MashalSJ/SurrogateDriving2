@@ -144,12 +144,13 @@ public class TransactionController implements Serializable {
         // Return the object reference of the selected (i.e., signed-in) Transaction object
         return selected;
     }
-    public void createTransaction(Transaction transaction) {
+    public void createTransaction(UserController userController) {
+        Transaction transaction = new Transaction();
         transaction.setStart_location(start_location);
         transaction.setEnd_location(end_loaction);
         transaction.setStart_time(Calendar.getInstance());
-//        transaction.setCustomer_id(customer_id);
-        transaction.setPrice(price);
+        transaction.setCustomer_id(userController.getCustomer_id());
+        transaction.setPrice();
         // Create the customer in the database
         transactionFacade.create(transaction);
     }

@@ -109,7 +109,6 @@ public class Transaction implements Serializable {
     @Column(name = "customer_id")
     private Integer customer_id;
 
-    @Basic(optional = false)
     @Column(name = "driver_id")
     private Integer driver_id;
 
