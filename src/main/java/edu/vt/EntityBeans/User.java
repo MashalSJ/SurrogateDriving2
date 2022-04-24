@@ -64,13 +64,9 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "customer_id")
     private Integer customer_id;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "driver_id")
     private Integer driver_id;
 

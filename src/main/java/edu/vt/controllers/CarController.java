@@ -142,7 +142,7 @@ public class CarController implements Serializable {
         return selected;
     }
 
-    public void createCar(Car car) {
+    public void createCar(Car car, Integer customer_id) {
         car.setBrand(brand);
         car.setCar_type(carType);
         car.setColor(color);
@@ -150,6 +150,7 @@ public class CarController implements Serializable {
         car.setTransmission(transmission);
         car.setPlate_number(plateNumber);
         car.setYear(year);
+        car.setCustomer_id(customer_id);
         // Create the customer in the database
         carFacade.create(car);
     }

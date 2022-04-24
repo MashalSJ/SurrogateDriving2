@@ -156,7 +156,7 @@ public class UserController implements Serializable {
     Create User's Account and Redirect to Show the SignIn Page
     **********************************************************
      */
-    public String createAccount(DriverController driverController, CustomerController customerController, CarController carController) {
+    public String createAccount(DriverController driverController, CustomerController customerController, CarController carController, String accountType) {
         /*
         ----------------------------------------------------------------
         Password and Confirm Password are validated under 3 tests:
@@ -210,8 +210,6 @@ public class UserController implements Serializable {
              Set the properties of the newly created newUser object with the values
              entered by the user in the AccountCreationForm in CreateAccount.xhtml             
              */
-            newUser.setCustomer_id(customer_id);
-            newUser.setCustomer_id(driver_id);
             newUser.setAccount_type(accountType);
             newUser.setUsername(username);
 
@@ -219,12 +217,14 @@ public class UserController implements Serializable {
             if(newUser.getAccount_type().equals("driver")){
                 Driver driver = new Driver();
                 driverController.createDriver(driver);
+                newUser.setDriver_id(driver.getDriver_id());
             }
             else if(newUser.getAccount_type().equals("customer")){
                 Customer customer = new Customer();
                 customerController.createCustomer(customer);
                 Car car = new Car();
-                carController.createCar(car);
+                carController.createCar(car, customer.getCustomer_id());
+                newUser.setCustomer_id(customer.getCustomer_id());
             }
 
             /*

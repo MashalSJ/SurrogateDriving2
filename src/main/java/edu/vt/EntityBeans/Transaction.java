@@ -80,7 +80,6 @@ public class Transaction implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar start_time;
 
-    @Basic(optional = false)
     @Column(name = "end_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar end_time;
@@ -91,7 +90,6 @@ public class Transaction implements Serializable {
     @Column(name = "start_location")
     private String start_location;
 
-    @Basic(optional = false)
     @Size(min = 1, max = 64)
     @Column(name = "end_location")
     private String end_location;
@@ -101,11 +99,9 @@ public class Transaction implements Serializable {
     @Column(name = "price")
     private Double price;
 
-    @Basic(optional = false)
     @Column(name = "customer_rating")
     private Integer customer_rating;
 
-    @Basic(optional = false)
     @Column(name = "driver_rating")
     private Integer driver_rating;
 
