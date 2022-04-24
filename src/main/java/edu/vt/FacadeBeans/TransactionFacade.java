@@ -61,6 +61,13 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
                 .getResultList();
     }
 
+    public List<Transaction> needsRating(Integer customer_id) {
+        return getEntityManager().createQuery(
+                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id AND driver_rating IS NULL AND driver_id IS NOT NULL")
+                .setParameter("customer_id", customer_id)
+                .getResultList();
+    }
+
     public List<Transaction> jobsQuery() {
         return getEntityManager().createQuery(
                         "SELECT u FROM Transaction u WHERE u.end_time IS NULL")
