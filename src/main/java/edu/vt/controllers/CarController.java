@@ -159,4 +159,8 @@ public class CarController implements Serializable {
         this.selected = selected;
     }
 
+    public int count(){
+        return carFacade.count();
+    }
+
 }

@@ -197,7 +197,8 @@ public class PasswordResetManager implements Serializable {
             userFacade.edit(user);
 
             // Initialize the instance variables
-            username = password = confirmPassword = answerToSecurityQuestion = "";
+            //username = password = confirmPassword = answerToSecurityQuestion = "";
+            username = password = confirmPassword = "";
 
             Methods.showMessage("Information", "Success!",
                     "Your Password has been Reset!");

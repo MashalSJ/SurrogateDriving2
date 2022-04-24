@@ -140,4 +140,8 @@ public class DriverController implements Serializable {
         // Create the customer in the database
         driverFacade.create(driver);
     }
+
+    public int count(){
+        return driverFacade.count();
+    }
 }
