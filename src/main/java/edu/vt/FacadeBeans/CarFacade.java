@@ -46,7 +46,7 @@ public class CarFacade extends AbstractFacade<Car> {
         return entityManager.find(Car.class, id);
     }
 
-    // Returns the object reference of the Car object whose car CustomerID is CustomerID
+    /*
     public Car findByCustomerID(String customer_id) {
         if (entityManager.createQuery("SELECT c FROM Car c WHERE c.customer_id = :customer_id)
                 .setParameter("customer_id", customer_id)
@@ -57,7 +57,7 @@ public class CarFacade extends AbstractFacade<Car> {
                     .setParameter("customer_id", customer_id)
                     .getSingleResult());
         }
-    }
+    }*/
     // Returns the object reference of the Car object whose car plate number is plate_number
     public Car findByPlateNumber(String plate_number) {
         if (entityManager.createQuery("SELECT c FROM Car c WHERE c.plate_number = :plate_number")

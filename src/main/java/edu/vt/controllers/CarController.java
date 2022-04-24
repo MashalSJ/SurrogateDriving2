@@ -51,7 +51,7 @@ public class CarController implements Serializable {
     CarFacade bean into the instance variable 'CarFacade' after it is instantiated at runtime.
      */
     @EJB
-    private CarFacade CarFacade;
+    private CarFacade carFacade;
 
 
     /*
@@ -125,11 +125,11 @@ public class CarController implements Serializable {
     }
 
     public CarFacade getCarFacade() {
-        return CarFacade;
+        return carFacade;
     }
 
     public void setCarFacade(CarFacade carFacade) {
-        CarFacade = carFacade;
+        carFacade = carFacade;
     }
 
     public Car getSelected() {
