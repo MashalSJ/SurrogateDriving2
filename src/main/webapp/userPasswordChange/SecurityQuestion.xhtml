@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  - Created by Osman Balci on 2021.7.15
-  - Copyright © 2021 Osman Balci. All rights reserved.
+  - Created by Yongjae Lim on 2021.11.15
+  - Copyright © 2021 Yongjae Lim. All rights reserved.
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- Do not enter tags before the composition line since they are ignored by JSF -->
 
     <!-- This page is constructed based on the siteTemplate -->
     <ui:composition template="/template/siteTemplate.xhtml">
@@ -31,8 +33,9 @@
                         </div>
 
                         <div style="margin-bottom:10px">
-                            <p:inputText id="answer" value="#{passwordResetManager.answerToSecurityQuestion}" style="width: 290px"
-                                         required="true" requiredMessage="Please enter your answer to the security question!" />
+                            <p:inputText id="answer" value="#{passwordResetManager.answerToSecurityQuestion}" required="true"
+                                         requiredMessage="Please enter your answer to the security question!" 
+                                         class="inputTextField" />
                         </div>
 
                         <br/>
@@ -56,4 +59,5 @@
             </div>
         </ui:define>
     </ui:composition>
+    <!-- Do not enter tags after the composition line since they are ignored by JSF -->
 </html>
