@@ -66,7 +66,7 @@ public class UserFacade extends AbstractFacade<User> {
     public Integer numOfAdmins(String accountType) {
 
         return getEntityManager().createQuery(
-                        "SELECT c FROM Transaction c WHERE c.account_type = :accountType")
+                        "SELECT c FROM User c WHERE c.account_type = :accountType")
                 .getResultList().size();
     }
 

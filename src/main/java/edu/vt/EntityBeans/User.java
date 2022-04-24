@@ -33,6 +33,7 @@ representing the User table in the SurrogateDrivingDB database.
         , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
         , @NamedQuery(name = "User.findByDriverID", query = "SELECT u FROM User u WHERE u.driver_id = :driver_id")
         , @NamedQuery(name = "User.findByCustomerID", query = "SELECT u FROM User u WHERE u.customer_id = :customer_id")
+        , @NamedQuery(name = "User.findAccountType", query = "SELECT u FROM User u WHERE u.account_type = :account_type")
 })
 
 public class User implements Serializable {
