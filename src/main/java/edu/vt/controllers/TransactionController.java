@@ -215,4 +215,8 @@ public class TransactionController implements Serializable {
     public void unselect() {
         selected = null;
     }
+
+    public int count(){
+        return transactionFacade.count();
+    }
 }

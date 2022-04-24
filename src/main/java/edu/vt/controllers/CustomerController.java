@@ -111,4 +111,7 @@ public class CustomerController implements Serializable {
             customerFacade.create(customer);
     }
 
+    public int count(){
+        return customerFacade.count();
+    }
 }

@@ -30,7 +30,7 @@
                     ********************************
                     -->
                     <p:outputLabel value="Total number of Users:" />
-                    <p:outputLabel value="#{userController.count()}"/>
+                    <p:outputLabel value="#{userFacade.count()}"/>
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
@@ -44,13 +44,13 @@
                     *       Number of admins     *
                     ********************************
                     -->
-                    <p:outputLabel value="Total number of Customers:" />
+                    <p:outputLabel value="Total number of Admins:" />
                     <p:outputLabel value="#{userController.count()} - #{customerController.count()} - #{driverController.count()}"/>
 
                     <!--
                     ********************************
                     *       Number of customers     *
-                    ********************************
+                    ********************************i
                     -->
                     <p:outputLabel value="Total number of Customers:" />
                     <p:outputLabel value="#{customerController.count()}"/>
