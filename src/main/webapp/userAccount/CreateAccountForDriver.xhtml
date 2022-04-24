@@ -62,7 +62,7 @@
                     -->
                     <p:outputLabel value="DOB:" for="dob" />
                     <p:calendar id="dob" pattern="MM/dd/yyyy" mask="true"
-                                value="#{driverController.birthdate}"
+                                value="#{driverController.date_of_Birth}"
                                 required="true" requiredMessage="DOB is required!"/>
 
                     <!--
@@ -150,7 +150,7 @@
                 ================================
                 -->
                 <p:commandButton id="createAccount" value="Submit" icon="fas fa-arrow-up" styleClass="rounded-button"
-                                 ajax="false" action="#{userController.createAccount(driverController, customerController, carController)}" />
+                                 ajax="false" action="#{userController.createAccount(driverController, customerController, carController, 'driver')}" />
                 &nbsp;&nbsp;
                 <!--
                 ================================
