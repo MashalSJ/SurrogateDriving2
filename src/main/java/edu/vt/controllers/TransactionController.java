@@ -11,7 +11,6 @@ import edu.vt.FacadeBeans.TransactionFacade;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
 import edu.vt.globals.Password;
-
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,7 +18,6 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
-
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import java.io.IOException;
@@ -27,7 +25,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
 
 @Named("transactionController")
 @SessionScoped
@@ -61,7 +58,7 @@ public class TransactionController implements Serializable {
     private List<Transaction> driverTransactions = null;
     private List<Transaction> requests = null;
     private List<Transaction> customerTransactions = null;
-    private double prices = null;
+    private double prices;
 
     
     /*
@@ -91,7 +88,7 @@ public class TransactionController implements Serializable {
         return requests;
     }
 
-    public double getPrice() {
+    public double calculatePrice() {
         if (price == null) {
             price = transactionFacade.averagePrice();
         }
@@ -99,10 +96,10 @@ public class TransactionController implements Serializable {
     }
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {
-        if (customerTransactions == null) {
-            customerTransactions = transactionFacade.customerIdQuery(customerID);
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.customerIdQuery(customerID);
         }
-        return customerTransactions;
+        return listOfTransactions;
     }
 
     public Calendar getStart_time() {
@@ -209,11 +206,94 @@ public class TransactionController implements Serializable {
 
     /*
      **************************************
-     *   Unselect Selected Movie Object   *
+     *   Unselect Selected Transaction Object   *
      **************************************
      */
     public void unselect() {
         selected = null;
+    }
+
+    /*
+     *************************************
+     *   Cancel and Display List.xhtml   *
+     *************************************
+     */
+    public String cancel() {
+        // Unselect previously selected transaction object if any
+        selected = null;
+        return "/lists/JobList?faces-redirect=true";
+    }
+
+    /*
+    *************************************
+    UPDATE Selected Transaction in the Database
+    *************************************
+     */
+    public void update() {
+        Methods.preserveMessages();
+
+        persist(PersistAction.UPDATE,"Transaction was Successfully Updated!");
+
+        if (!JsfUtil.isValidationFailed()) {
+            // No JSF validation error. The UPDATE operation is successfully performed.
+            selected = null;        // Remove selection
+            listOfTransactions = null;    // Invalidate listOfTransaction to trigger re-query.
+        }
+    }
+
+    /*
+     **********************************************************************************************
+     *   Perform CREATE, UPDATE (EDIT), and DELETE (DESTROY, REMOVE) Operations in the Database   *
+     **********************************************************************************************
+     */
+    /**
+     * @param persistAction refers to CREATE, UPDATE (Edit) or DELETE action
+     * @param successMessage displayed to inform the user about the result
+     */
+    private void persist(PersistAction persistAction, String successMessage) {
+        if (selected != null) {
+            try {
+                if (persistAction != PersistAction.DELETE) {
+                    /*
+                     -------------------------------------------------
+                     Perform CREATE or EDIT operation in the database.
+                     -------------------------------------------------
+                     The edit(selected) method performs the SAVE (STORE) operation of the "selected"
+                     object in the database regardless of whether the object is a newly
+                     created object (CREATE) or an edited (updated) object (EDIT or UPDATE).
+
+                     TransactionFacade inherits the edit(selected) method from the AbstractFacade class.
+                     */
+                    transactionFacade.edit(selected);
+                } else {
+                    /*
+                     -----------------------------------------
+                     Perform DELETE operation in the database.
+                     -----------------------------------------
+                     The remove(selected) method performs the DELETE operation of the "selected"
+                     object in the database.
+
+                     TransactionFacade inherits the remove(selected) method from the AbstractFacade class.
+                     */
+                    transactionFacade.remove(selected);
+                }
+                JsfUtil.addSuccessMessage(successMessage);
+            } catch (EJBException ex) {
+                String msg = "";
+                Throwable cause = ex.getCause();
+                if (cause != null) {
+                    msg = cause.getLocalizedMessage();
+                }
+                if (msg.length() > 0) {
+                    JsfUtil.addErrorMessage(msg);
+                } else {
+                    JsfUtil.addErrorMessage(ex,"A persistence error occurred.");
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+                JsfUtil.addErrorMessage(ex,"A persistence error occurred.");
+            }
+        }
     }
 
     public int count(){
