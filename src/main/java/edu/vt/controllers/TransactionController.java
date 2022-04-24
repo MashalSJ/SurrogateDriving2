@@ -8,6 +8,7 @@ import edu.vt.EntityBeans.Customer;
 import edu.vt.EntityBeans.Transaction;
 import edu.vt.EntityBeans.User;
 import edu.vt.FacadeBeans.TransactionFacade;
+import edu.vt.controllers.util.JsfUtil;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
 import edu.vt.globals.Password;
@@ -239,6 +240,10 @@ public class TransactionController implements Serializable {
             selected = null;        // Remove selection
             listOfTransactions = null;    // Invalidate listOfTransaction to trigger re-query.
         }
+    }
+
+    public void driverRate(){
+
     }
 
     /*
