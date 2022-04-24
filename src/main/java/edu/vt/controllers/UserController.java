@@ -401,5 +401,7 @@ public class UserController implements Serializable {
         }
     }
 
-
+    public int count(){
+        return userFacade.count();
+    }
 }
