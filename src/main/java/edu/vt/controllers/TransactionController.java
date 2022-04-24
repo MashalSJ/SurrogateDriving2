@@ -105,7 +105,7 @@ public class TransactionController implements Serializable {
 
         //Generate random int value from 50 to 100 
         //System.out.println("Random value in int from "+min+" to "+max+ ":");
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        double random_int = Math.random()*(max-min+1)+min;
         this.price = random_int;
     }
 
