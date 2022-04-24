@@ -57,14 +57,21 @@ public class TransactionController implements Serializable {
     private TransactionFacade transactionFacade;
 
     private List<Transaction> listofRequests = null;
-    
+    private List<Transaction> listOfTransactions = null;
     
     /*
     =========================
     Getter and Setter Methods
     =========================
      */
-
+    
+    public List<Transaction> getListOfTransactions() {
+        if (listOfTransactions == null) {
+            listOfTransactions = transactionFacade.findAll();
+        }
+        return listOfTransactions;
+    }
+    
     public Calendar getStart_time() {
         return start_time;
     }
@@ -167,4 +174,12 @@ public class TransactionController implements Serializable {
         this.selected = selected;
     }
 
+    /*
+     **************************************
+     *   Unselect Selected Movie Object   *
+     **************************************
+     */
+    public void unselect() {
+        selected = null;
+    }
 }
