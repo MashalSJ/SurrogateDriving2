@@ -8,6 +8,7 @@ import edu.vt.EntityBeans.Transaction;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 // @Stateless annotation implies that the conversational state with the client shall NOT be maintained.
 @Stateless
@@ -45,29 +46,18 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
      *********************
      */
 
-    /*
-    -----------------------------
-    Search Category: Country NAME
-    -----------------------------
-     */
-    // Searches CountriesDB for countries where Country name contains the searchString entered by the user.
-    public List<Transaction> customerIdQuery(Integer customerId) {
-        // Place the % wildcard before and after the search string to search for it anywhere in the Country name
-        //searchString = "%" + searchString + "%";
-        // Conduct the search in a case-insensitive manner and return the results in a list.
+
+    public List<Transaction> driverIdQuery(Integer driver_id) {
         return getEntityManager().createQuery(
-                        "SELECT c FROM Transaction c WHERE c.customer_id LIKE :customerId")
-                .setParameter(customerId, customerId)
+                        "SELECT c FROM Transaction c WHERE c.driver_id = :driver_id")
+                .setParameter("driver_id", driver_id)
                 .getResultList();
     }
 
-    public List<Transaction> driverIdQuery(Integer driverId) {
-        // Place the % wildcard before and after the search string to search for it anywhere in the Country name
-        //searchString = "%" + searchString + "%";
-        // Conduct the search in a case-insensitive manner and return the results in a list.
+    public List<Transaction> customerIdQuery(Integer customer_id) {
         return getEntityManager().createQuery(
-                        "SELECT c FROM Transaction c WHERE c.driver_id LIKE :driverId")
-                .setParameter(driverId, driverId)
+                        "SELECT c FROM Transaction c WHERE c.customer_id = :customer_id")
+                .setParameter("customer_id", customer_id)
                 .getResultList();
     }
 

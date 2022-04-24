@@ -73,7 +73,8 @@ public class TransactionController implements Serializable {
     }
     public List<Transaction> getListOfRequests() {
         if (listOfRequests == null) {
-            listOfRequests = transactionFacade.findByEndTimeNull();
+            //listOfRequests = transactionFacade.findByEndTimeNull();
+            listOfRequests = transactionFacade.driverIdQuery(new Integer(5));
         }
         return listOfRequests;
     }
@@ -172,6 +173,7 @@ public class TransactionController implements Serializable {
         transaction.setStart_time(Calendar.getInstance());
         transaction.setCustomer_id(userController.getSelected().getCustomer_id());
         transaction.setPrice();
+        transaction.setDriver_id(-1);
         // Create the customer in the database
         transactionFacade.create(transaction);
     }
