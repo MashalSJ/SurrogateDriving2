@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  - Created by Osman Balci on 2021.7.15
+  - Copyright © 2021 Osman Balci. All rights reserved.
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<!-- This page is constructed based on the siteTemplate -->
+<ui:composition template="/template/siteTemplate.xhtml">
+
+    <ui:define name="title">
+        <!-- Set the page title -->
+        <h:outputText value="Create Request" />
+    </ui:define>
+
+    <!-- Create the content for this page below -->
+    <ui:define name="editableContent">
+        <div align="center" style="width:80%; margin:0 auto;">
+            <h:form id="AccountCreationForm">
+                <h1>Request Ride</h1>
+                <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
+                    <!--
+                    ********************************
+                    *        Start Location        *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Start Location:" for="start_location" />
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+                    <p:inputText id="start_location" value="#{transactionController.start_location}" style="width: 290px"
+                                 required="true" requiredMessage="Start Location is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                    <!--
+                    ********************************
+                    *       Destination            *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Destination:" for="end_location" />
+                    <p:inputText id="end_location" value="#{transactionController.end_location}" style="width: 290px"
+                                 required="true" requiredMessage="Destination is required!">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+
+                </p:panelGrid>
+                <br /><br />
+
+
+                <!--
+                ================================
+                |    CREATE Request Button     |
+                ================================
+                -->
+                <p:commandButton id="createRequest" value="Request" icon="fas fa-arrow-up" styleClass="rounded-button"
+                                 ajax="false" action="#{transactionController.createTransaction()}" />
+                <!--
+                ================================
+                |        CANCEL Button         |
+                ================================
+                -->
+                <p:button outcome="/index" value="Cancel" icon="fas fa-ban" styleClass="ui-button-outlined" />
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
