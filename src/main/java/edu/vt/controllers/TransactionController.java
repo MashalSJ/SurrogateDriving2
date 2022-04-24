@@ -57,8 +57,11 @@ public class TransactionController implements Serializable {
     private TransactionFacade transactionFacade;
 
     //private List<Transaction> listOfRequests = null;
-    private List<Transaction> listOfTransactions = null;
-    //private List<Transaction> listOfJobs = null;
+    private List<Transaction> allTransactions = null;
+    private List<Transaction> driverTransactions = null;
+    private List<Transaction> requests = null;
+    private List<Transaction> customerTransactions = null;
+
     
     /*
     =========================
@@ -67,31 +70,31 @@ public class TransactionController implements Serializable {
      */
     
     public List<Transaction> getAllTransactions() {
-        if (listOfTransactions == null) {
-            listOfTransactions = transactionFacade.findAll();
+        if (allTransactions == null) {
+            allTransactions = transactionFacade.findAll();
         }
-        return listOfTransactions;
+        return allTransactions;
     }
 
     public List<Transaction> getDriverTransactions(Integer driverID) {
-        if (listOfTransactions == null) {
-            listOfTransactions = transactionFacade.driverIdQuery(driverID);
+        if (driverTransactions == null) {
+            driverTransactions = transactionFacade.driverIdQuery(driverID);
         }
-        return listOfTransactions;
+        return driverTransactions;
     }
 
-    public List<Transaction> getRequests(Integer driverID) {
-        if (listOfTransactions == null) {
-            listOfTransactions = transactionFacade.jobsQuery();
+    public List<Transaction> getRequests() {
+        if (requests == null) {
+            requests = transactionFacade.jobsQuery();
         }
-        return listOfTransactions;
+        return requests;
     }
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {
-        if (listOfTransactions == null) {
-            listOfTransactions = transactionFacade.customerIdQuery(customerID);
+        if (customerTransactions == null) {
+            customerTransactions = transactionFacade.customerIdQuery(customerID);
         }
-        return listOfTransactions;
+        return customerTransactions;
     }
 
     public Calendar getStart_time() {
