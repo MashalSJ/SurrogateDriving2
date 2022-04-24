@@ -14,6 +14,10 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import java.io.IOException;
@@ -21,6 +25,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
 
 @Named("transactionController")
 @SessionScoped
@@ -49,7 +54,9 @@ public class TransactionController implements Serializable {
     @EJB
     private TransactionFacade transactionFacade;
 
-
+    private List<Transaction> listofRequests = null;
+    
+    
     /*
     =========================
     Getter and Setter Methods
@@ -136,6 +143,13 @@ public class TransactionController implements Serializable {
         }
         // Return the object reference of the selected (i.e., signed-in) Transaction object
         return selected;
+    }
+    public void createTransaction(Transaction transaction) {
+        transaction.setStart_location(start_location);
+        transaction.setEnd_location(end_loaction);
+        transaction.setStart_time(Calendar.getInstance());
+        // Create the customer in the database
+        transactionFacade.create(transaction);
     }
 
     public void setSelected(Transaction selected) {
