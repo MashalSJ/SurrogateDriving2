@@ -23,6 +23,8 @@ import java.util.Calendar;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -98,10 +100,10 @@ public class TransactionController implements Serializable {
     }
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {
-        if (listOfTransactions == null) {
-            listOfTransactions = transactionFacade.customerIdQuery(customerID);
+        if (customerTransactions == null) {
+            customerTransactions = transactionFacade.customerIdQuery(customerID);
         }
-        return listOfTransactions;
+        return customerTransactions;
     }
 
     public Calendar getStart_time() {
@@ -239,12 +241,18 @@ public class TransactionController implements Serializable {
         if (!JsfUtil.isValidationFailed()) {
             // No JSF validation error. The UPDATE operation is successfully performed.
             selected = null;        // Remove selection
-            listOfTransactions = null;    // Invalidate listOfTransaction to trigger re-query.
+            customerTransactions = null;    // Invalidate listOfTransaction to trigger re-query.
+            requests = null;
+            driverTransactions = null;
+            allTransactions = null;
         }
     }
 
-    public void driverRate(){
-
+    public void driverRate(Integer driverId, CustomerController customerController){
+        customerController.getSelected().setCustomer_id(driverId);
+        selected.setEnd_time(Calendar.getInstance());
+        update();
+        customerController.update();
     }
 
     /*

@@ -52,7 +52,7 @@
                 <div align="center">
                     <!-- SAVE button -->
                     <p:commandButton value="Save" icon="fas fa-save" styleClass="rounded-button"
-                                     ajax="false" actionListener="#{transactionController.update}"
+                                     ajax="false" actionListener="#{transactionController.driverRate(userController.selected.driver_id, customerController)}"
                                      update="display,:TransactionListForm:datalist,:growlInfoMessage,:growlWarningMessage,:growlErrorMessage,:growlFatalMessage"
                                      oncomplete="handleSubmit(args, 'TransactionEditDialog');"/>
                     &nbsp;
