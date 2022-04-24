@@ -63,6 +63,14 @@
                     <p:outputLabel value="Total number of Drivers:" />
                     <p:outputLabel value="#{driverController.count()}"/>
 
+                    <!--
+                    ********************************
+                    *       Average price for transactions     *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Average price for transactions:" />
+                    <p:outputLabel value="#{transationController.getPrice()}"/>
+
                 </p:panelGrid>
                 <br /><br />
 

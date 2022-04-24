@@ -61,6 +61,7 @@ public class TransactionController implements Serializable {
     private List<Transaction> driverTransactions = null;
     private List<Transaction> requests = null;
     private List<Transaction> customerTransactions = null;
+    private double prices = null;
 
     
     /*
@@ -88,6 +89,13 @@ public class TransactionController implements Serializable {
             requests = transactionFacade.jobsQuery();
         }
         return requests;
+    }
+
+    public double getPrice() {
+        if (price == null) {
+            price = transactionFacade.averagePrice();
+        }
+        return price;
     }
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {

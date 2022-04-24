@@ -66,6 +66,12 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
                         "SELECT u FROM Transaction u WHERE u.end_time IS NULL")
                 .getResultList();
     }
+
+    public double averagePrice() {
+        return getEntityManager().createQuery(
+                        "SELECT SUM(price) as sumPrices FROM Transaction")
+                .getResultList().get(0);
+    }
     public List<Transaction> findByEndTimeNull() {
         // Place the % wildcard before and after the search string to search for it anywhere in the Country name
         //searchString = "%" + searchString + "%";
