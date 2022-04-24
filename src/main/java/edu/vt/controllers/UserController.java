@@ -227,6 +227,8 @@ public class UserController implements Serializable {
                 newUser.setCustomer_id(customer.getCustomer_id());
             }
 
+
+
             /*
             Invoke class Password's createHash() method to convert the user-entered String
             password to a String containing the following parts
