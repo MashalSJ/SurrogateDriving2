@@ -93,10 +93,12 @@ public class TransactionController implements Serializable {
     }
 
     public double calculatePrice() {
+        List<Object> avgs = null;
         if (price == null) {
-            price = transactionFacade.averagePrice();
+           avgs = transactionFacade.averagePrice();
         }
-        return price;
+        System.out.println("\n\n\n\n\n\n\n\n\n" + avgs.toString());
+        return (Double) avgs.get(0);
     }
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {

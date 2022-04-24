@@ -67,6 +67,7 @@ public class UserFacade extends AbstractFacade<User> {
 
         return getEntityManager().createQuery(
                         "SELECT c FROM User c WHERE c.account_type = :accountType")
+                .setParameter("accountType", accountType)
                 .getResultList().size();
     }
 
