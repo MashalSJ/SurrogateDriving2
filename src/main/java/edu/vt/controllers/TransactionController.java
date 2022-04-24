@@ -56,7 +56,7 @@ public class TransactionController implements Serializable {
     @EJB
     private TransactionFacade transactionFacade;
 
-    private List<Transaction> listofRequests = null;
+    private List<Transaction> listOfRequests = null;
     private List<Transaction> listOfTransactions = null;
     
     /*
@@ -71,7 +71,13 @@ public class TransactionController implements Serializable {
         }
         return listOfTransactions;
     }
-    
+    public List<Transaction> getListOfRequests() {
+        if (listOfRequests == null) {
+            listOfRequests = transactionFacade.findByEndTimeNull();
+        }
+        return listOfRequests;
+    }
+
     public Calendar getStart_time() {
         return start_time;
     }
