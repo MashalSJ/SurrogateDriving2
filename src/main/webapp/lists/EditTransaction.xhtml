@@ -26,10 +26,6 @@
                 <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2"
                              rendered="#{transactionController.selected != null}">
 
-                    <p:outputLabel value="Driver's Rating:" for="customer_rating" />
-                    <p:selectOneMenu id="customer_rating" value="#{transactionController.selected.customer_rating}"
-                                 required="false" requiredMessage="Rating must be 1-5"/>
-
                     <p:outputLabel value="Customer's Rating:" for="driver_rating" />
                     <p:selectOneMenu id="driver_rating" value="#{transactionController.selected.driver_rating}"
                                  required="false" requiredMessage="Rating must be 1-5" >
@@ -52,7 +48,7 @@
                 <div align="center">
                     <!-- SAVE button -->
                     <p:commandButton value="Save" icon="fas fa-save" styleClass="rounded-button"
-                                     ajax="false" actionListener="#{transactionController.driverRate(userController.selected.driver_id, customerController)}"
+                                     ajax="false" actionListener="#{transactionController.driverRate(userController.selected.driver_id)}"
                                      update="display,:TransactionListForm:datalist,:growlInfoMessage,:growlWarningMessage,:growlErrorMessage,:growlFatalMessage"
                                      oncomplete="handleSubmit(args, 'TransactionEditDialog');"/>
                     &nbsp;

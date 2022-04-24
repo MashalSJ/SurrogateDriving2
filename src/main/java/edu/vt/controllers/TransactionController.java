@@ -97,7 +97,6 @@ public class TransactionController implements Serializable {
         if (price == null) {
            avgs = transactionFacade.averagePrice();
         }
-        System.out.println("\n\n\n\n\n\n\n\n\n" + avgs.toString());
         return (Double) avgs.get(0);
     }
 
@@ -250,11 +249,10 @@ public class TransactionController implements Serializable {
         }
     }
 
-    public void driverRate(Integer driverId, CustomerController customerController){
-        customerController.getSelected().setCustomer_id(driverId);
+    public void driverRate(Integer driverId){
+        selected.setDriver_id(driverId);
         selected.setEnd_time(Calendar.getInstance());
         update();
-        customerController.update();
     }
 
     /*
