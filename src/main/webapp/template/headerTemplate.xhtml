@@ -76,6 +76,8 @@ siteTemplate for the entire site, achieving great maintainability.
                                 </c:if>
                                 <c:if test="#{userController.isAdmin(userController) == true}">
                                     <p:menuitem value="View All Transactions" outcome="/lists/AllTransactions.xhtml" icon="fas fa-list" />
+                                    <p:menuitem value="View Statistics" outcome="stats.xhtml" icon="fas fa-list" />
+                                    <p:menuitem value="Add Admin Account" outcome="CreateAccountForAdmin.xhtml" icon="fas fa-user-plus" />
                                 </c:if>
                                 <p:menuitem value="Sign Out" action="#{userController.logout()}" icon="fas fa-sign-out-alt" />
                             </c:if>
