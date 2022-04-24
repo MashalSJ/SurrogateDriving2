@@ -174,4 +174,12 @@ public class TransactionController implements Serializable {
         this.selected = selected;
     }
 
+    /*
+     **************************************
+     *   Unselect Selected Movie Object   *
+     **************************************
+     */
+    public void unselect() {
+        selected = null;
+    }
 }
