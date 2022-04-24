@@ -66,6 +66,14 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
                         "SELECT u FROM Transaction u WHERE u.end_time IS NULL")
                 .getResultList();
     }
+    public List<Transaction> findByEndTimeNull() {
+        // Place the % wildcard before and after the search string to search for it anywhere in the Country name
+        //searchString = "%" + searchString + "%";
+        // Conduct the search in a case-insensitive manner and return the results in a list.
+        return getEntityManager().createQuery(
+                        "SELECT c FROM Transaction c WHERE c.end_time IS NULL")
+                .getResultList();
+    }
 
     // Returns the object reference of the Transaction object whose primary key is id
     public Transaction getTransaction(int id) {
