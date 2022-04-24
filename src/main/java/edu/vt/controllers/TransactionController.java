@@ -62,6 +62,7 @@ public class TransactionController implements Serializable {
     private List<Transaction> driverTransactions = null;
     private List<Transaction> requests = null;
     private List<Transaction> customerTransactions = null;
+    private List<Transaction> customerNeedsRating = null;
     private double prices;
 
     
@@ -105,6 +106,13 @@ public class TransactionController implements Serializable {
             customerTransactions = transactionFacade.customerIdQuery(customerID);
         }
         return customerTransactions;
+    }
+
+    public List<Transaction> getCustomerNeedsRating(Integer customerID) {
+        if (customerNeedsRating == null) {
+            customerNeedsRating = transactionFacade.customerIdQuery(customerID);
+        }
+        return customerNeedsRating;
     }
 
     public Calendar getStart_time() {
