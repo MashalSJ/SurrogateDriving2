@@ -61,10 +61,9 @@
                     ********************************
                     -->
                     <p:outputLabel value="DOB:" for="dob" />
-                    <p:inputText id="dob" value="#{driverController.date_of_Birth}" style="width: 290px"
-                                 required="true" requiredMessage="DOB is required!">
-                        <f:validateLength minimum="2" />
-                    </p:inputText>
+                    <p:calendar id="dob" pattern="MM/dd/yyyy" mask="true"
+                                value="#{driverController.birthdate}"
+                                required="true" requiredMessage="DOB is required!"/>
 
                     <!--
                     ********************************

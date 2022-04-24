@@ -46,10 +46,17 @@
                     ********************************
                     -->
                     <p:outputLabel value="DOB:" for="dob" />
-                    <p:inputText id="dob" value="#{customerController.birthdate}" style="width: 290px"
-                                 required="true" requiredMessage="DOB is required!">
-                        <f:validateLength minimum="2" />
-                    </p:inputText>
+                    <p:calendar id="dob" pattern="MM/dd/yyyy" mask="true"
+                                value="#{customerController.birthdate}"
+                                required="true" requiredMessage="DOB is required!"/>
+
+<!--                    &lt;!&ndash;-->
+<!--                    Date is stored in the database in the format YYYY-MM-DD so that it is sortable.-->
+<!--                    However, we ask the user to enter the date as MM/DD/YYYY since it is the familiar format.-->
+<!--                    &ndash;&gt;-->
+<!--                    <p:calendar id="birthdate" pattern="MM/dd/yyyy" mask="true"-->
+<!--                                value="#{movieStarController.selected.birthdate}"-->
+<!--                                required="true" requiredMessage="Movie Star Birthdate is required!" />-->
 
 
                     <!--
