@@ -70,7 +70,7 @@ public class TransactionFacade extends AbstractFacade<Transaction> {
 
     public List<Transaction> jobsQuery() {
         return getEntityManager().createQuery(
-                        "SELECT u FROM Transaction u WHERE u.end_time IS NULL")
+                        "SELECT c FROM Transaction c WHERE c.end_time IS NULL")
                 .getResultList();
     }
 

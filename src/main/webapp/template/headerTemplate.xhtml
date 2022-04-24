@@ -67,10 +67,10 @@ siteTemplate for the entire site, achieving great maintainability.
                             <c:if test="#{userController.isLoggedIn() == true}">
                                 <c:if test="#{userController.isCustomer(userController) == true}">
                                     <p:menuitem value="Create Request" outcome="/CreateRequest" icon="fas fa-car" />
-                                    <p:menuitem value="History" outcome="/lists/CustomerHistory.xhtml" icon="fas fa-rectangle-history-circle-plus" />
+                                    <p:menuitem value="Rate Drivers" outcome="/lists/RateTransactions.xhtml" icon="fas fa-rectangle-history-circle-plus" />
+                                    <p:menuitem value="History" outcome="/lists/CompletedTransactions.xhtml" icon="fas fa-rectangle-history-circle-plus" />
                                 </c:if>
                                 <c:if test="#{userController.isDriver(userController) == true}">
-                                    <p:menuitem value="Create Request" outcome="/CreateRequest" icon="fas fa-car" />
                                     <p:menuitem value="Available Jobs" outcome="/lists/JobList.xhtml" icon="fas fa-exclamation" />
                                     <p:menuitem value="History" outcome="/lists/DriverHistory.xhtml" icon="fas fa-rectangle-history-circle-plus" />
                                 </c:if>

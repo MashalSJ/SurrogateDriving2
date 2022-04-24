@@ -22,7 +22,7 @@
     <ui:define name="editableContent">
         <div align="center" style="width:80%; margin:0 auto;">
             <h:form id="AccountCreationForm">
-                <h1>Request Ride</h1>
+                <h1>Stats</h1>
                 <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
                     <!--
                     ********************************
@@ -63,13 +63,16 @@
                     <p:outputLabel value="Total number of Drivers:" />
                     <p:outputLabel value="#{driverController.count()}"/>
 
+                    <p:outputLabel value="Total number of Transactions:" />
+                    <p:outputLabel value="#{transactionController.count()}"/>
+
                     <!--
                     ********************************
                     *       Average price for transactions     *
                     ********************************
                     -->
                     <p:outputLabel value="Average price for transactions:" />
-                    <p:outputLabel value="#{transationController.calculatePrice()}"/>
+                    <p:outputLabel value="#{transactionController.calculatePrice()}"/>
 
                 </p:panelGrid>
                 <br /><br />

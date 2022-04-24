@@ -48,8 +48,8 @@
                                  rowsPerPageTemplate="5,10,20,30,50,70,90"
                                  emptyMessage="No transaction found for the search query entered!" >
 
-                        <p:ajax event="rowSelect"   update=""/>
-                        <p:ajax event="rowUnselect" update=""/>
+                        <p:ajax event="rowSelect"   update="editButton"/>
+                        <p:ajax event="rowUnselect" update="editButton"/>
 
                         <!--
                         *************************
@@ -119,9 +119,9 @@
 <!--                                                 disabled="#{empty transactionController.selected}"/>-->
 <!--                                &nbsp;-->
 <!--                                &lt;!&ndash; EDIT button: id is used since it is referenced to be activated or deactivated &ndash;&gt;-->
-<!--                                <p:commandButton id="editButton" value="Edit" icon="fas fa-edit" styleClass="rounded-button"-->
-<!--                                                 update=":TransactionEditDlg" oncomplete="PF('TransactionEditDialog').show()"-->
-<!--                                                 disabled="#{empty transactionController.selected}"/>-->
+                                <p:commandButton id="editButton" value="Edit" icon="fas fa-edit" styleClass="rounded-button"
+                                                 update=":TransactionEditDlg" oncomplete="PF('TransactionEditDialog').show()"
+                                                 disabled="#{empty transactionController.selected}"/>
                                 &nbsp;
 <!--                                &lt;!&ndash; ***************************************************-->
 <!--                                Display a Confirmation dialog for the DELETE button-->
