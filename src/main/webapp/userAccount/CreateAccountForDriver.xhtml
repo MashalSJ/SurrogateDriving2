@@ -22,34 +22,20 @@
     <ui:define name="editableContent">
         <div align="center" style="width:80%; margin:0 auto;">
             <h:form id="AccountCreationForm">
-                <h1>Create an Account</h1>
+                <h1>Create an Account for Driver</h1>
                 <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
-                    <!--
-                    ********************************
-                    *          FIRST NAME          *
-                    ********************************
-                    -->
-                    <p:outputLabel value="Name:" for="firstName" />
+                    <p:outputLabel value="Name:" for="name" />
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="firstName" value="#{userController.firstName}" style="width: 290px"
-                                 required="true" requiredMessage="First Name is required!">
+                    <p:inputText id="name" value="#{driverController.name}" style="width: 290px"
+                                 required="true" requiredMessage="Name is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
 
-                    <!--
-                    ********************************
-                    *          SSN                 *
-                    ********************************
-                    -->
-                    <p:outputLabel value="SSN:" for="lastName" />
-                    <!--
-                    The required="true" attribute automatically places an asterisk *
-                    at the end of the value to indicate that the field is required.
-                    -->
-                    <p:inputText id="lastName" value="#{userController.lastName}" style="width: 290px"
+                    <p:outputLabel value="SSN:" for="ssn" />
+                    <p:inputText id="ssn" value="#{driverController.ssn}" style="width: 290px"
                                  required="true" requiredMessage="SSN is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -59,12 +45,12 @@
                     *          license number      *
                     ********************************
                     -->
-                    <p:outputLabel value="Driver License #:" for="address1" />
+                    <p:outputLabel value="Driver License #:" for="license_number" />
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="address1" value="#{userController.address1}" style="width: 290px"
+                    <p:inputText id="license_number" value="#{driverController.license_number}" style="width: 290px"
                                  required="true" requiredMessage="Driver License # is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -74,12 +60,8 @@
                     *          DATE of Birth       *
                     ********************************
                     -->
-                    <p:outputLabel value="DOB:" for="middleName" />
-                    <!--
-                    The required="true" attribute automatically places an asterisk *
-                    at the end of the value to indicate that the field is required.
-                    -->
-                    <p:inputText id="middleName" value="#{userController.middleName}" style="width: 290px"
+                    <p:outputLabel value="DOB:" for="dob" />
+                    <p:inputText id="dob" value="#{driverController.birthdate}" style="width: 290px"
                                  required="true" requiredMessage="DOB is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -89,15 +71,14 @@
                     *          Phone number        *
                     ********************************
                     -->
-                    <p:outputLabel value="Phone #:" for="city" />
+                    <p:outputLabel value="Phone #:" for="phonenum" />
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
-                    -->
-                    <p:inputText id="city" value="#{userController.city}" style="width: 290px"
-                                 required="true" requiredMessage="Phone number is required!">
-                        <f:validateLength minimum="2" />
-                    </p:inputText>
+                    --><p:inputText id="phonenum" value="#{driverController.phoneNum}" style="width: 290px"
+                                    required="true" requiredMessage="Phone number is required!">
+                    <f:validateLength minimum="2" />
+                </p:inputText>
 
                     <!--
                     ********************************
