@@ -5,6 +5,7 @@
 package edu.vt.controllers;
 
 import edu.vt.EntityBeans.Car;
+import edu.vt.EntityBeans.Driver;
 import edu.vt.FacadeBeans.CarFacade;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
@@ -139,6 +140,18 @@ public class CarController implements Serializable {
         }
         // Return the object reference of the selected (i.e., signed-in) Car object
         return selected;
+    }
+
+    public void createCar(Car car) {
+        car.setBrand(brand);
+        car.setCar_type(carType);
+        car.setColor(color);
+        car.setModel(model);
+        car.setTransmission(transmission);
+        car.setPlate_number(plateNumber);
+        car.setYear(year);
+        // Create the customer in the database
+        carFacade.create(car);
     }
 
     public void setSelected(Car selected) {

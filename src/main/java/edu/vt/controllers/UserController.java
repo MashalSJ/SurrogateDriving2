@@ -4,6 +4,9 @@
  */
 package edu.vt.controllers;
 
+import edu.vt.EntityBeans.Car;
+import edu.vt.EntityBeans.Customer;
+import edu.vt.EntityBeans.Driver;
 import edu.vt.EntityBeans.User;
 import edu.vt.FacadeBeans.UserFacade;
 import edu.vt.globals.Constants;
@@ -38,6 +41,7 @@ public class UserController implements Serializable {
     private String accountType;
     private Integer driver_id;
     private Integer customer_id;
+
 
     private User selected;
 
@@ -152,7 +156,7 @@ public class UserController implements Serializable {
     Create User's Account and Redirect to Show the SignIn Page
     **********************************************************
      */
-    public String createAccount() {
+    public String createAccount(DriverController driverController, CustomerController customerController, CarController carController) {
         /*
         ----------------------------------------------------------------
         Password and Confirm Password are validated under 3 tests:
@@ -210,6 +214,18 @@ public class UserController implements Serializable {
             newUser.setCustomer_id(driver_id);
             newUser.setAccount_type(accountType);
             newUser.setUsername(username);
+
+
+            if(newUser.getAccount_type().equals("driver")){
+                Driver driver = new Driver();
+                driverController.createDriver(driver);
+            }
+            else if(newUser.getAccount_type().equals("customer")){
+                Customer customer = new Customer();
+                customerController.createCustomer(customer);
+                Car car = new Car();
+                carController.createCar(car);
+            }
 
             /*
             Invoke class Password's createHash() method to convert the user-entered String

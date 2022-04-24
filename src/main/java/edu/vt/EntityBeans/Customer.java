@@ -116,28 +116,44 @@ public class Customer implements Serializable {
     of the Customer table in the SurrogateDrivingDB database.
     ======================================================
      */
-    public Integer getId() {
+    public Integer getCustomer_id() {
         return customer_id;
     }
 
-    public void setId(Integer id) {
-        this.customer_id = id;
+    public void setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
     }
 
-    public String getCustomername() {
-        return name;
-    }
-
-    public void setCustomername(String customername) {
-        this.name = customername;
-    }
-
-    public Integer getSSN() {
+    public Integer getSsn() {
         return ssn;
     }
 
-    public void setSSN(Integer ssn) {
+    public void setSsn(Integer ssn) {
         this.ssn = ssn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     /*

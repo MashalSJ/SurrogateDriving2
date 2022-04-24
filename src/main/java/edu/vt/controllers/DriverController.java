@@ -1,5 +1,6 @@
 package edu.vt.controllers;
 
+import edu.vt.EntityBeans.Customer;
 import edu.vt.EntityBeans.Driver;
 import edu.vt.FacadeBeans.DriverFacade;
 import edu.vt.globals.Constants;
@@ -121,5 +122,15 @@ public class DriverController implements Serializable {
          */
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         return sessionMap.get("driver_id") != null;
+    }
+
+    public void createDriver(Driver driver) {
+        driver.setName(name);
+        driver.setSsn(ssn);
+        driver.setPhone_number(phone_number);
+        driver.setDate_Of_Birth(Date_of_Birth);
+        driver.setLicense_number(license_number);
+        // Create the customer in the database
+        driverFacade.create(driver);
     }
 }

@@ -5,6 +5,8 @@
 package edu.vt.controllers;
 
 import edu.vt.EntityBeans.Customer;
+import edu.vt.EntityBeans.Driver;
+import edu.vt.EntityBeans.User;
 import edu.vt.FacadeBeans.CustomerFacade;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
@@ -98,6 +100,15 @@ public class CustomerController implements Serializable {
 
     public void setSelected(Customer selected) {
         this.selected = selected;
+    }
+
+    public void createCustomer(Customer customer) {
+            customer.setBirthdate(birthdate);
+            customer.setName(name);
+            customer.setSsn(ssn);
+            customer.setPhoneNum(phoneNum);
+            // Create the customer in the database
+            customerFacade.create(customer);
     }
 
 }

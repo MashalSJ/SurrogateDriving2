@@ -72,12 +72,12 @@
                     *          car plate #       *
                     *******************************ff*
                     -->
-                    <p:outputLabel value="Car Plate #:" for="email" />
+                    <p:outputLabel value="Car Plate #:" for="platenum" />
                     <!--
                     The required="true" attribute automatically places an asterisk *
                     at the end of the value to indicate that the field is required.
                     -->
-                    <p:inputText id="" value="#{car.email}" style="width: 290px"
+                    <p:inputText id="platenum" value="#{carController.}" style="width: 290px"
                                  required="true" requiredMessage="Car plate number is required!">
                         <f:validateLength minimum="2" />
                     </p:inputText>
@@ -243,7 +243,7 @@
                 ================================
                 -->
                 <p:commandButton id="createAccount" value="Submit" icon="fas fa-arrow-up" styleClass="rounded-button"
-                                 ajax="false" action="#{userController.createAccount()}" />
+                                 ajax="false" action="#{userController.createAccount(driverController, customerController, carController)}" />
                 &nbsp;&nbsp;
                 <!--
                 ================================
