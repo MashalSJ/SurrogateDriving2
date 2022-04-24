@@ -103,14 +103,14 @@ public class TransactionController implements Serializable {
 
     public List<Transaction> getCustomerTransactions(Integer customerID) {
         if (customerTransactions == null) {
-            customerTransactions = transactionFacade.customerIdQuery(customerID);
+            customerTransactions = transactionFacade.customerHistory(customerID);
         }
         return customerTransactions;
     }
 
     public List<Transaction> getCustomerNeedsRating(Integer customerID) {
         if (customerNeedsRating == null) {
-            customerNeedsRating = transactionFacade.customerIdQuery(customerID);
+            customerNeedsRating = transactionFacade.needsRating(customerID);
         }
         return customerNeedsRating;
     }
@@ -254,6 +254,7 @@ public class TransactionController implements Serializable {
             requests = null;
             driverTransactions = null;
             allTransactions = null;
+            customerNeedsRating = null;
         }
     }
 

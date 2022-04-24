@@ -26,8 +26,8 @@
                 <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2"
                              rendered="#{transactionController.selected != null}">
 
-                    <p:outputLabel value="Customer's Rating:" for="driver_rating" />
-                    <p:selectOneMenu id="driver_rating" value="#{transactionController.selected.driver_rating}"
+                    <p:outputLabel value="Rate Customer:" for="customer_rating" />
+                    <p:selectOneMenu id="customer_rating" value="#{transactionController.selected.customer_rating}"
                                  required="false" requiredMessage="Rating must be 1-5" >
                         <f:selectItem itemLabel="Select One" itemValue=""/>
                         <f:selectItem itemLabel="1" itemValue="1"/>

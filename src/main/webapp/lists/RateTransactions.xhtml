@@ -35,7 +35,7 @@
             <h:form id="TransactionListForm">
                 <p:panel header="List of Transactions">
                     <p:dataTable id="datalist"
-                                 value="#{transactionController.getCustomerTransactions(userController.selected.customer_id)}"
+                                 value="#{transactionController.getCustomerNeedsRating(userController.selected.customer_id)}"
                                  var="aTransaction"
                                  widgetVar="transactionsDataTable"
                                  selectionMode="single"
@@ -119,7 +119,7 @@
 <!--                                                 disabled="#{empty transactionController.selected}"/>-->
 <!--                                &nbsp;-->
 <!--                                &lt;!&ndash; EDIT button: id is used since it is referenced to be activated or deactivated &ndash;&gt;-->
-                                <p:commandButton id="editButton" value="Edit" icon="fas fa-edit" styleClass="rounded-button"
+                                <p:commandButton id="editButton" value="Rate" icon="fas fa-edit" styleClass="rounded-button"
                                                  update=":TransactionEditDlg" oncomplete="PF('TransactionEditDialog').show()"
                                                  disabled="#{empty transactionController.selected}"/>
                                 &nbsp;
