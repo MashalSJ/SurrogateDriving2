@@ -11,7 +11,6 @@ import edu.vt.FacadeBeans.TransactionFacade;
 import edu.vt.globals.Constants;
 import edu.vt.globals.Methods;
 import edu.vt.globals.Password;
-
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,7 +18,6 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
-
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import java.io.IOException;
@@ -27,7 +25,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
 
 @Named("transactionController")
 @SessionScoped
@@ -61,7 +58,7 @@ public class TransactionController implements Serializable {
     private List<Transaction> driverTransactions = null;
     private List<Transaction> requests = null;
     private List<Transaction> customerTransactions = null;
-    private double prices = null;
+    private double prices;
 
     
     /*
@@ -91,7 +88,7 @@ public class TransactionController implements Serializable {
         return requests;
     }
 
-    public double getPrice() {
+    public double calculatePrice() {
         if (price == null) {
             price = transactionFacade.averagePrice();
         }
