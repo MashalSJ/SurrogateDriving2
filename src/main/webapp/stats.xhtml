@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  - Created by Yongjae Lim on 2022.4.24
+  - Copyright © 2022 Yongjae Lim. All rights reserved.
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<!-- This page is constructed based on the siteTemplate -->
+<ui:composition template="/template/siteTemplate.xhtml">
+
+    <ui:define name="title">
+        <!-- Set the page title -->
+        <h:outputText value="Statistics for Surrogate Driver application" />
+    </ui:define>
+
+    <!-- Create the content for this page below -->
+    <ui:define name="editableContent">
+        <div align="center" style="width:80%; margin:0 auto;">
+            <h:form id="AccountCreationForm">
+                <h1>Request Ride</h1>
+                <p:panelGrid columns="2" columnClasses="panelGridColumn1, panelGridColumn2">
+                    <!--
+                    ********************************
+                    *        Number of User        *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Total number of Users:" />
+                    <p:outputLabel value="#{userController.count()}"/>
+                    <!--
+                    The required="true" attribute automatically places an asterisk *
+                    at the end of the value to indicate that the field is required.
+                    -->
+<!--                    <p:inputText id="start_location" value="#{transactionController.start_location}" style="width: 290px"-->
+<!--                                 required="true" requiredMessage="Start Location is required!">-->
+<!--                        <f:validateLength minimum="2" />-->
+<!--                    </p:inputText>-->
+                    <!--
+                    ********************************
+                    *       Number of admins     *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Total number of Customers:" />
+                    <p:outputLabel value="#{userController.count()} - #{customerController.count()} - #{driverController.count()}"/>
+
+                    <!--
+                    ********************************
+                    *       Number of customers     *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Total number of Customers:" />
+                    <p:outputLabel value="#{customerController.count()}"/>
+
+                    <!--
+                    ********************************
+                    *       Number of drivers     *
+                    ********************************
+                    -->
+                    <p:outputLabel value="Total number of Drivers:" />
+                    <p:outputLabel value="#{driverController.count()}"/>
+
+                </p:panelGrid>
+                <br /><br />
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
